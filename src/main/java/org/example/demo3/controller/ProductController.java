@@ -5,10 +5,7 @@ import org.example.demo3.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/products")
@@ -55,5 +52,11 @@ public class ProductController {
     public String showView(@PathVariable Long id, Model model){
         model.addAttribute("pro", productRepository.findById(id).get());
         return "/view";
+    }
+
+    @GetMapping("/search")
+    public String search(@RequestParam String name, Model model){
+        model.addAttribute("productList", productRepository.findAllByNameContaining(name));
+        return "/result";
     }
 }
