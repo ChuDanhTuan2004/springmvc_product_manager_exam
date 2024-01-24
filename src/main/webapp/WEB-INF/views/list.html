@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>List</h1>
+<a href="/products/create">Add</a>
+<table border="1">
+    <tr>
+        <td>STT</td>
+        <td>Name</td>
+        <td>Price</td>
+        <td>Delete/Edit</td>
+        <td>View</td>
+    </tr>
+    <tr th:each="pro, o : ${productList}">
+        <td th:text="${o.count}"></td>
+        <td th:text="${pro.name}"></td>
+        <td hidden="hidden" th:text="${pro.code}"></td>
+        <td hidden="hidden" th:text="${pro.description}"></td>
+        <td th:text="${pro.price}"></td>
+        <td hidden="hidden" th:text="${#dates.format(pro.product_day, 'dd-MM-yyyy HH:mm')}"></td>
+        <td>
+            <a th:href="@{/products/edit/__${pro.id}__}">Edit</a>
+            <a th:href="@{/products/delete/__${pro.id}__}">Delete</a>
+        </td>
+        <td>
+            <a th:href="@{/products/view/__${pro.id}__}">View</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

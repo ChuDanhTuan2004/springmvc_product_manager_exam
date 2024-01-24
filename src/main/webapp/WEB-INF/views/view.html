@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>View product</h1>
+<p><strong th:text="${pro.name}"></strong></p>
+<div>
+    <span>Code:</span>
+    <span th:text="${pro.code}"></span>
+</div>
+<div>
+    <span>Description:</span>
+    <span th:text="${pro.description}"></span>
+</div>
+<div>
+    <span>Price:</span>
+    <span th:text="${pro.price}"></span>
+</div>
+<div>
+    <span>Production day:</span>
+    <span th:text="${#dates.format(pro.product_day, 'dd-MM-yyyy HH:mm')}"></span>
+</div>
+<div>
+    <span>Id:</span>
+    <span th:text="${pro.id}"></span>
+</div>
+</body>
+</html>

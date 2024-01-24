@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Create</h1>
+<form action="/products/add" method="post">
+    <input type="text" name="name">
+    <input type="text" name="code">
+    <input type="text" name="description">
+    <input type="number" name="price" th:value="0">
+    <input type="date" name="product_day">
+    <input type="submit" value="Add">
+</form>
+</body>
+</html>
